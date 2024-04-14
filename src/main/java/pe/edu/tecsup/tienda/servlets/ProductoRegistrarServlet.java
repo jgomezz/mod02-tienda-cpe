@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import pe.edu.tecsup.tienda.entities.Categoria;
+import pe.edu.tecsup.tienda.entities.Producto;
 import pe.edu.tecsup.tienda.services.CategoriaService;
 import pe.edu.tecsup.tienda.services.ProductoService;
 
@@ -24,6 +25,8 @@ public class ProductoRegistrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static final Logger log = Logger.getLogger(ProductoRegistrarServlet.class);
+
+	private static final Integer ACTIVADO = 1;
 
 	private ProductoService productoService;
 
@@ -70,7 +73,35 @@ public class ProductoRegistrarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		// HACER EL REGISTRO EN BASE DE DATOS
-		//doGet(request, response);
+		log.info("Post ProductoRegistrarServlet");
+		try {
+		
+			String categorias_id = request.getParameter("categorias_id");
+			String nombre = request.getParameter("nombre");
+			String precio = request.getParameter("precio");
+			String stock = request.getParameter("stock");
+			String descripcion = request.getParameter("descripcion");
+			
+			Producto producto = new Producto();
+			producto.setCategorias_id(Integer.parseInt(categorias_id));
+			producto.setNombre(nombre);
+			producto.setPrecio(Double.parseDouble(precio));
+			producto.setStock(Integer.parseInt(stock));
+			producto.setDescripcion(descripcion);
+			producto.setEstado(ACTIVADO);
+			
+			log.info(producto);
+			
+			productoService.registrar(producto);
+			
+			response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
+			
+		} catch (Exception e) {
+			log.error(e, e);
+			throw new ServletException(e.getMessage(), e);
+		}
+		
+	
 	}
 
 }

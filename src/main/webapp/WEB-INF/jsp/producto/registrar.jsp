@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
 <%@page import="pe.edu.tecsup.tienda.entities.Categoria"%>
 <%@page import="java.util.List"%>
@@ -52,7 +52,7 @@
 								<div class="input-group-text">S/</div>
 							</div>
 							<input type="number" name="precio" id="precio"
-								class="form-control" min="0" step="0.01">
+								class="form-control" min="0" step="0.01" required>
 						</div>
 					</div>
 					<div class="form-group">
