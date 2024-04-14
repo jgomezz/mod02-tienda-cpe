@@ -25,7 +25,7 @@
 	
 		<div class="display-4 mb-3">Mantenimiento de Productos</div>
 		
-		<form action="<%=request.getContextPath()%>/ProductoRegistrarServlet" method="post">
+		<form action="<%=request.getContextPath()%>/ProductoRegistrarServlet" method="post" enctype="multipart/form-data">
 			<div class="card">
 				<div class="card-header">Registro de Producto</div>
 				<div class="card-body">

@@ -51,11 +51,17 @@
 							<td><c:out value="${producto.nombre}"/></td>
 							<td><c:out value="${producto.categoria.nombre}"/></td>
 							<td><c:out value="${producto.precio}"/></td>
-							<td><img src="" alt=""></td>
+							
+							<td>
+								<c:if test="${producto.imagen_nombre != null}">
+									<img src="<%=request.getContextPath()%>/files/<c:out value="${producto.imagen_nombre}"/>" alt="" height="30">
+								</c:if>
+							</td>
+							
 							<td class="text-right">
 								<a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>&nbsp;Mostrar</a>
 								<a href="#" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>&nbsp;Editar</a>
-								<a href="<%=request.getContextPath()%>/ProductoEliminarServlet?id=<c:out value="${producto.id}"/> %>" 
+								<a href="<%=request.getContextPath()%>/ProductoEliminarServlet?id=<c:out value="${producto.id}"/>" 
 									class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;Eliminar</a>
 							</td>
 						</tr>
