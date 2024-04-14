@@ -41,9 +41,15 @@ public class ProductoEliminarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		log.info("Get ProductoEliminarServlet");
 		try {
+			
 			Integer id = Integer.parseInt(request.getParameter("id"));
+			
 			productoService.eliminar(id);
+		
+			request.getSession().setAttribute("success", "Registro eliminado satisfactoriamente");	
+			
 			response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
+		
 		} catch (Exception e) {
 			log.error(e, e);
 			throw new ServletException(e.getMessage(), e);
