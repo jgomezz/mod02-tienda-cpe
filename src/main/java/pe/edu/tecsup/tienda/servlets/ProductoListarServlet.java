@@ -52,6 +52,8 @@ public class ProductoListarServlet extends HttpServlet {
 				log.info(producto.toString());
 			}
 			
+			request.getRequestDispatcher("/WEB-INF/jsp/producto/listar.jsp").forward(request, response);
+							
 		} catch (Exception e) {
 			
 			log.error(e, e);
@@ -60,7 +62,7 @@ public class ProductoListarServlet extends HttpServlet {
 			
 		}
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
