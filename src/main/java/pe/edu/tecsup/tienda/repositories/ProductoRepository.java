@@ -107,4 +107,25 @@ public class ProductoRepository {
 		
 		log.info("success!");
 	}
+
+	public void eliminar(Integer id) throws Exception {
+		
+		log.info("call eliminar(id: " + id + ")");
+		
+		Connection con = ConexionBD.obtenerConexion();
+		
+		String query = "DELETE FROM productos WHERE id=?";
+		
+		PreparedStatement stmt = con.prepareStatement(query);
+		
+		stmt.setInt(1, id);
+		
+		stmt.executeUpdate();
+		
+		stmt.close();
+		
+		con.close();
+		
+		log.info("success!");
+	}
 }
