@@ -48,7 +48,7 @@
 							</p>
 						</div>
 						<div class="card-footer">
-							<aa href="<%=request.getContextPath()%>/CarritoComprarServlet?id=<c:out value="${producto.id}"/>"
+							<a href="<%=request.getContextPath()%>/CarritoComprarServlet?id=<c:out value="${producto.id}"/>"
 								class="btn btn-primary"><i class="fa fa-shopping-cart"></i>
 								Comprar</a>
 						</div>

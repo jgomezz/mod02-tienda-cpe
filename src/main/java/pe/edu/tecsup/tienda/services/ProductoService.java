@@ -54,4 +54,11 @@ public class ProductoService {
 		productoRepository.eliminar(id);
 	
 	}
+
+	public Producto obtener(int id) throws Exception {
+
+		log.info("call obtener(id: " + id + ")");
+		
+		return productoRepository.obtener(id);
+	}
 }
