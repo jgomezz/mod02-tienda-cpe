@@ -1,7 +1,10 @@
 package pe.edu.tecsup.tienda.services;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
+import pe.edu.tecsup.tienda.entities.Producto;
 import pe.edu.tecsup.tienda.repositories.ProductoRepository;
 
 /**
@@ -24,4 +27,15 @@ public class ProductoService {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Producto> listar() throws Exception {
+		
+		log.info("call listar()");
+		return productoRepository.listar();
+	
+	}
 }
